@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class SimpleGame {
     public static void main(String[] args) {
         int numOfGuesses = 0;
@@ -5,7 +7,7 @@ public class SimpleGame {
         SimpleDot dotCom = new SimpleDot();
 
         int randomNum = (int) (Math.random() * 5);
-        int[] locations = {randomNum, randomNum+1, randomNum+2};
+        ArrayList<String> locations = new ArrayList<String>();
         dotCom.setLocationCells(locations);
 
         boolean isAlive = true;
