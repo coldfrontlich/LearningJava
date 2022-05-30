@@ -1,0 +1,34 @@
+Create "Fitness managing system" - "Clients, Trainers,
+ Admins, and the Owner."
+
+ //Money managment system for Fitness club
+
+ Keep track of all Clients total fees
+ fees already paid
+ Trainers salary
+ Admins salary
+
+ //Fitness club
+ Clients,
+ Trainers,
+ Admins,
+ Total money earned,
+ Total money spent - Trainers and Admins salaries
+
+ //Trainer
+ id,
+ name,
+ salary
+
+ //Client
+ id,
+ name,
+ monthsSubscription,
+ fees
+
+ //Admin
+ id,
+ name,
+ salary
+
+ OOP
