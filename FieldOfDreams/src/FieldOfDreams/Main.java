@@ -1,18 +1,14 @@
 package FieldOfDreams;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Main {
     public final static String word = "community";
     public static int count = 0;
 
-    public static void main(String[] args) throws FileNotFoundException {
-        int globalCount = readData();
-
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+
         String maskWord = "*".repeat(word.length());
         System.out.println("Welcome to the show!");
         System.out.println("Your word is: ");
@@ -42,9 +38,6 @@ public class Main {
             }
         } while(maskWord.contains("*"));
         System.out.println("You win\nYour score is " + count);
-        globalCount += count;
-        System.out.println("General score is " + globalCount);
-        printData(new File("score"),globalCount);
 
         scan.close();
     }
@@ -62,19 +55,5 @@ public class Main {
             }
         }
         return stringBuilder.toString();
-    }
-
-    public static int readData() throws FileNotFoundException {
-        Scanner scanMethod = new Scanner(new File("score"));
-        int answer = Integer.parseInt(scanMethod.nextLine());
-        scanMethod.close();
-        return answer;
-    }
-
-    public static void printData(File file, int score) throws FileNotFoundException {
-        PrintWriter printWriter = new PrintWriter(file);
-        printWriter.print("");
-        printWriter.print(score);
-        printWriter.close();
     }
 }
