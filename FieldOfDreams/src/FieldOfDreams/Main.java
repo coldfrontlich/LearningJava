@@ -1,10 +1,13 @@
 package FieldOfDreams;
 
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
     public final static String word = "community";
     public static int count = 0;
+
+    public static int globalCount;
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -40,6 +43,27 @@ public class Main {
         System.out.println("You win\nYour score is " + count);
 
         scan.close();
+
+        try {
+            File myFile = new File("Score.txt");
+            FileReader fileReader = new FileReader(myFile);
+            BufferedReader reader = new BufferedReader(fileReader);
+
+            globalCount = Integer.parseInt(reader.readLine()) + count;
+            reader.close();
+            System.out.println("Global score is " + globalCount);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FileWriter writer = new FileWriter("Score.txt");
+            writer.write("");
+            writer.write(Integer.toString(globalCount));
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static String replaceMaskLetter(char c, String maskWord) {
